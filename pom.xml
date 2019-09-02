@@ -35,17 +35,40 @@
   	<dependency>
   		<groupId>org.springframework.boot</groupId>
   		<artifactId>spring-boot-starter-web</artifactId>
+  		<exclusions>
+  			<exclusion>
+  				<groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-logging</artifactId>
+  			</exclusion>
+  		</exclusions>
   	</dependency>
+  	<dependency>
+  		<groupId>org.springframework.boot</groupId>
+  		<artifactId>spring-boot-starter-test</artifactId>
+  		<scope>test</scope>
+  	</dependency>
+	<dependency>
+    	<groupId>org.springframework.boot</groupId>
+    	<artifactId>spring-boot-starter-log4j2</artifactId>
+	</dependency>
   	<!-- 热部署 -->
   	<dependency>
   		<groupId>org.springframework.boot</groupId>
   		<artifactId>spring-boot-devtools</artifactId>
+  		<optional>true</optional>
+        <scope>provided</scope>
   	</dependency>
   	<!-- CXF支持webservice -->
   	<dependency>
   		<groupId>org.apache.cxf</groupId>
   		<artifactId>cxf-spring-boot-starter-jaxws</artifactId>
   		<version>3.2.4</version>
+  	</dependency>
+  	<!-- fastjson -->
+  	<dependency>
+  		<groupId>com.alibaba</groupId>
+  		<artifactId>fastjson</artifactId>
+  		<version>1.2.58</version>
   	</dependency>
   </dependencies>
   

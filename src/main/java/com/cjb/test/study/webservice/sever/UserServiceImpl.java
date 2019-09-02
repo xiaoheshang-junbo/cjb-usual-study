@@ -5,6 +5,8 @@ package com.cjb.test.study.webservice.sever;
 
 import javax.jws.WebService;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import com.cjb.test.study.bean.User;
@@ -21,10 +23,10 @@ endpointInterface = "com.cjb.test.study.webservice.sever.UserService"// 接口�
 )
 @Component
 public class UserServiceImpl implements UserService {
-
+	private Logger log=LoggerFactory.getLogger(UserServiceImpl.class);
 	@Override
 	public String getUser(String id) {
-		
+		log.info("id=="+id);
 		return new User(id).toString();
 	}
 
