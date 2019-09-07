@@ -8,7 +8,7 @@ webservice
 ##### 2、JDK自带工具根据wsdl文件生成java代码
 wsimport -encoding utf-8 -keep -s E:\eclipse-workspace\cjb-usual-study\src\main\java -p com.cjb.test.study.bean.token -verbose AppManageToStandardProvider.wsdl
 | Option | Description |
-|:---:|:---:|
+| :---: | :---: |
 | -d <directory> | 指定输出目录 |
 | -b <path> | 指定JAXWS或者JAXB的绑定文件，可以多个 |
 | -B <jaxbOption> | 指定JAXB的参数，透传给JAXB命令 |
