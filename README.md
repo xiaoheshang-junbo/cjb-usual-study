@@ -7,6 +7,7 @@ webservice
 根据cfg分发路径：http://localhost:8087/cjb-usual-study/webservice/user-api?wsdl
 ##### 2、JDK自带工具根据wsdl文件生成java代码
 wsimport -encoding utf-8 -keep -s E:\eclipse-workspace\cjb-usual-study\src\main\java -p com.cjb.test.study.bean.token -verbose AppManageToStandardProvider.wsdl <br>
+
 | Option | Description |
 | :---: | :---: |
 | -d <directory> | 指定输出目录 |
