@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.cjb.test.study.webservice.sever;
+package com.cjb.test.study.webservice;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;

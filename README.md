@@ -6,7 +6,11 @@ webservice
 ##### 1、cfg配置
 根据cfg分发路径：http://localhost:8087/cjb-usual-study/webservice/user-api?wsdl
 ##### 2、JDK自带工具根据wsdl文件生成java代码
-wsimport -encoding utf-8 -keep -s E:\eclipse-workspace\cjb-usual-study\src\main\java -p com.cjb.test.study.bean.token -verbose AppManageToStandardProvider.wsdl <br>
+Token实例：
+wsimport -encoding utf-8 -keep -target 2.1 -s E:\eclipse-workspace\cjb-usual-study\src\main\java -p com.cjb.test.study.bean.token -verbose -Xnocompile AppManageToStandardProvider.wsdl <br>
+HCE实例：使用java绑定，
+wsimport -encoding utf-8 -keep -target 2.1  -extension -d E:\eclipse-workspace\cjb-usual-study\src\main\java -p com.cjb.test.study.bean.hce -verbose -Xnocompile GlobalEligibilityInfo.wsdl <br>
+xjc -encoding utf-8 -target 2.1 -extension -d E:\eclipse-workspace\cjb-usual-study\src\main\java -p com.cjb.test.study.bean.hce -no-header gd-extension-1.0.0.xsd <br>
 
 | Option | Description |
 | :---: | :---: |

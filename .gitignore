@@ -2,3 +2,9 @@
 .classpath
 .project
 /.settings/
+/src/main/java/com/cjb/test/study/bean/hce/
+/src/main/java/com/cjb/test/study/bean/token/
+/src/main/java/com/cjb/test/study/webservice/GlobalEligibilityInfo.java
+/src/main/java/com/cjb/test/study/webservice/AppManageToStandardProvider.java
+/src/main/java/com/cjb/test/study/webservice/server/GlobalEligibilityInfoImpl.java
+/src/main/java/com/cjb/test/study/webservice/server/AppManageToStandardProviderImpl.java

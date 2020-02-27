@@ -13,6 +13,8 @@ import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.cjb.test.study.webservice.UserService;
+
 /**
  * CXF配置类发布webserver服务
  * @author junbo
@@ -28,9 +30,9 @@ public class CxfConfig {
 	 * cxf分发指定目录 默认servlet路径/*,如果覆写则按照自己定义的来
 	 * @return
 	 */
-	@Bean
+//	@Bean
     public ServletRegistrationBean dispatcherServlet() {
-        return new ServletRegistrationBean(new CXFServlet(),"/webservice/*");
+        return new ServletRegistrationBean(new CXFServlet(),"/*");
     }
 
 	/**
@@ -43,8 +45,25 @@ public class CxfConfig {
 		endPoint.publish("/user-api");
 		return endPoint;
 	}
+	/**
+	 * jax-ws
+	 * @return
+	 */
+	@Bean
+	public Endpoint endpointToken() {
+		EndpointImpl endPoint=new EndpointImpl(bus,new AppManageToStandardProviderImpl());
+		endPoint.publish("/token");
+		return endPoint;
+	}
 	
-	public Endpoint endpoint1() {
-		return null;
+	/**
+	 * jax-ws
+	 * @return
+	 */
+	@Bean
+	public Endpoint endpointHce() {
+		EndpointImpl endPoint=new EndpointImpl(bus,new GlobalEligibilityInfoImpl());
+		endPoint.publish("/hce");
+		return endPoint;
 	}
 }

@@ -10,7 +10,7 @@ import org.apache.cxf.endpoint.Client;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.apache.cxf.jaxws.endpoint.dynamic.JaxWsDynamicClientFactory;
 
-import com.cjb.test.study.webservice.sever.UserService;
+import com.cjb.test.study.webservice.UserService;
 
 /**
  * 客户端测试
