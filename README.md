@@ -3,6 +3,7 @@
 
 webservice
 ===========
+##### 参考：http://www.moheqionglin.com/site/serialize/02006008/detail.html
 ##### 1、cfg配置
 根据cfg分发路径：http://localhost:8087/cjb-usual-study/webservice/user-api?wsdl
 ##### 2、JDK自带工具根据wsdl文件生成java代码
