@@ -5,6 +5,7 @@ package com.cjb.test.study;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * 
@@ -12,6 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * 2019年4月20日 下午11:54:19
  */
 @SpringBootApplication
+@ComponentScan(value = "com.cjb.test.study")
 public class StudyApplication {
 
 	/**

@@ -13,9 +13,9 @@ import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.cjb.test.study.webservice.GlobalEligibilityInfo;
 import com.cjb.test.study.webservice.UserService;
 import com.cjb.test.study.webservice.sever.AppManageToStandardProviderImpl;
-import com.cjb.test.study.webservice.sever.GlobalEligibilityInfoImpl;
 
 /**
  * CXF配置类发布webserver服务
@@ -28,6 +28,8 @@ public class CxfConfig {
 	private Bus bus;
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private GlobalEligibilityInfo globalEligibilityInfo;
 	/**
 	 * cxf分发指定目录 默认servlet路径/*,如果覆写则按照自己定义的来
 	 * @return
@@ -64,7 +66,7 @@ public class CxfConfig {
 	 */
 	@Bean
 	public Endpoint endpointHce() {
-		EndpointImpl endPoint=new EndpointImpl(bus,new GlobalEligibilityInfoImpl());
+		EndpointImpl endPoint=new EndpointImpl(bus,globalEligibilityInfo);
 		endPoint.publish("/hce");
 		return endPoint;
 	}

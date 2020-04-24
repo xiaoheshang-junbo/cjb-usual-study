@@ -64,11 +64,17 @@
   		<artifactId>cxf-spring-boot-starter-jaxws</artifactId>
   		<version>3.2.4</version>
   	</dependency>
+  	<!-- A SOAP 1.2 message is not valid when sent to a SOAP 1.1 only endpoint -->
+  	<dependency>
+    	<groupId>org.apache.geronimo.specs</groupId>
+    	<artifactId>geronimo-jaxws_2.2_spec</artifactId>
+    	<version>1.2</version>
+	</dependency>
   	<!-- fastjson -->
   	<dependency>
   		<groupId>com.alibaba</groupId>
   		<artifactId>fastjson</artifactId>
-  		<version>1.2.60</version>
+  		<version>1.2.62</version>
   	</dependency>
   </dependencies>
   
