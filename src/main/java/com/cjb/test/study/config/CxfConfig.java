@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.cjb.test.study.webservice.sever;
+package com.cjb.test.study.config;
 
 import javax.xml.ws.Endpoint;
 
@@ -14,6 +14,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.cjb.test.study.webservice.UserService;
+import com.cjb.test.study.webservice.sever.AppManageToStandardProviderImpl;
+import com.cjb.test.study.webservice.sever.GlobalEligibilityInfoImpl;
 
 /**
  * CXF配置类发布webserver服务
