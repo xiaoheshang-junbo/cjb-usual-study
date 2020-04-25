@@ -15,35 +15,37 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * 配置多个端口监听 springboot2之前的写法
+ * 
  * @author MyPC
  * 2019年4月21日 下午1:47:43
  */
 @Configuration
-public class EmbeddedTomcatConfiguration implements EmbeddedServletContainerCustomizer{
-	@Value("${my.port1}")
-	private int port1;
-	@Value("${my.port2}")
-	private int port2;
-	
+public class EmbeddedTomcatConfiguration implements EmbeddedServletContainerCustomizer {
+    @Value("${my.port1}")
+    private int port1;
+    @Value("${my.port2}")
+    private int port2;
+    @Value("${server.http.port}")
+    private int port3;
 
-	@Override
-	public void customize(ConfigurableEmbeddedServletContainer container) {
-		//判断如果是tomcat才进行配置
-		if(container instanceof TomcatEmbeddedServletContainerFactory) {
-			TomcatEmbeddedServletContainerFactory tomcat = (TomcatEmbeddedServletContainerFactory)container;
-			List<Connector> result=new ArrayList<Connector>();
-			Connector httpConnector1=new Connector("HTTP/1.1");
-			httpConnector1.setPort(port1);
-			result.add(httpConnector1);
-			Connector httpConnector2=new Connector("HTTP/1.1");
-			httpConnector2.setPort(port2);
-			result.add(httpConnector2);
-			tomcat.addAdditionalTomcatConnectors(result.toArray(new Connector[]{}));
-		}
-		
-	}
-	
-	
+    @Override
+    public void customize(ConfigurableEmbeddedServletContainer container) {
+        // 判断如果是tomcat才进行配置
+        if (container instanceof TomcatEmbeddedServletContainerFactory) {
+            TomcatEmbeddedServletContainerFactory tomcat = (TomcatEmbeddedServletContainerFactory) container;
+            List<Connector> result = new ArrayList<Connector>();
+            Connector httpConnector1 = new Connector("HTTP/1.1");
+            httpConnector1.setPort(port1);
+            result.add(httpConnector1);
+            Connector httpConnector2 = new Connector("HTTP/1.1");
+            httpConnector2.setPort(port2);
+            result.add(httpConnector2);
+            Connector httpConnector3 = new Connector("HTTP/1.1");
+            httpConnector3.setPort(port3);
+            result.add(httpConnector3);
+            tomcat.addAdditionalTomcatConnectors(result.toArray(new Connector[] {}));
+        }
 
+    }
 
 }

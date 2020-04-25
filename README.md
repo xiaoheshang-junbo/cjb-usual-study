@@ -43,3 +43,25 @@ xjc -encoding utf-8 -target 2.1 -extension -d E:\eclipse-workspace\cjb-usual-stu
 
 springcloud 组件
 =========================
+
+https 配置
+=========================
+##### 1、生成证书
+如果配置了JAVA开发环境，可以使用keytool命令生成证书。我们打开控制台，输入：
+keytool -genkey -alias tomcat -dname "CN=cjb,OU=cjb,O=cjb,L=cjb,ST=cjb,C=CN" -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore keystore.jks -validity 3650
+输入后会提示输入密码，这个密码在下面配置文件有用到。
+生成后，在家目录找到证书文件，复制到SpringBoot应用的src/main/resources下
+控制台输入以下命令查看密钥库中的信息
+keytool -list -v -keystore MyKeyStore.p12 -storepass chengblog
+#### 2、在SpringBoot应用的application.properties增
+-https端口号.
+server.port=443
+-证书的路径.
+server.ssl.key-store=classpath:keystore.jks
+-证书密码，请修改为您自己证书的密码.
+server.ssl.key-store-password=123456
+-秘钥库类型
+server.ssl.keyStoreType=JKS
+-证书别名
+server.ssl.keyAlias=tomcat
+
