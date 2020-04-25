@@ -34,13 +34,13 @@ public class EmbeddedTomcatConfiguration implements EmbeddedServletContainerCust
         if (container instanceof TomcatEmbeddedServletContainerFactory) {
             TomcatEmbeddedServletContainerFactory tomcat = (TomcatEmbeddedServletContainerFactory) container;
             List<Connector> result = new ArrayList<Connector>();
-            Connector httpConnector1 = new Connector("HTTP/1.1");
+            Connector httpConnector1 = new Connector(TomcatEmbeddedServletContainerFactory.DEFAULT_PROTOCOL);
             httpConnector1.setPort(port1);
             result.add(httpConnector1);
             Connector httpConnector2 = new Connector("HTTP/1.1");
             httpConnector2.setPort(port2);
             result.add(httpConnector2);
-            Connector httpConnector3 = new Connector("HTTP/1.1");
+            Connector httpConnector3 = new Connector(TomcatEmbeddedServletContainerFactory.DEFAULT_PROTOCOL);
             httpConnector3.setPort(port3);
             result.add(httpConnector3);
             tomcat.addAdditionalTomcatConnectors(result.toArray(new Connector[] {}));
