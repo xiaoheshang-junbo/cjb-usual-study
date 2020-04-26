@@ -17,7 +17,9 @@ import org.apache.cxf.jaxws.endpoint.dynamic.JaxWsDynamicClientFactory;
 import com.alibaba.fastjson.JSON;
 import com.cjb.test.study.bean.hce.ApplyInfoType;
 import com.cjb.test.study.bean.hce.CheckGlobalEligibilityRequestType;
+import com.cjb.test.study.bean.hce.DeployServiceResponseType;
 import com.cjb.test.study.bean.hce.ExtensionsType;
+import com.cjb.test.study.bean.hce.HceCardInfoType;
 import com.cjb.test.study.bean.hce.ObjectFactory;
 import com.cjb.test.study.bean.hce.SEIdGenericType;
 import com.cjb.test.study.bean.hce.ServiceIdentifierType;
@@ -42,8 +44,9 @@ public class CxfClient {
     public static void main(String[] args) throws Exception {
         // testCli1();
         // testCli2();
-        testCli4();
+        // testCli4();
         // testCli5();
+        testCli6();
     }
 
     /**
@@ -137,7 +140,7 @@ public class CxfClient {
     }
 
     /**
-     * 测试2
+     * 测试5
      * 方式1.代理类工厂的方式,需要拿到对方的接口 -------适用与接口发布的服务
      * 接口代理类的发布
      * 
@@ -180,5 +183,39 @@ public class CxfClient {
         // 调用并返回结果
         Object res = userService.checkGlobalEligibility(checkGlobalEligibilityRequest);
         System.out.println(JSON.toJSONString(res));
+    }
+
+    /**
+     * 测试6
+     * 方式1.代理类工厂的方式,需要拿到对方的接口 -------适用与接口发布的服务
+     * 接口代理类的发布
+     * 
+     * @throws Exception
+     */
+    public static void testCli6() throws Exception {
+        // 借口地址
+        String address = "http://127.0.0.1:8087/cjb-usual-study/hce";
+        // 代理工厂
+        JaxWsProxyFactoryBean jpfb = new JaxWsProxyFactoryBean();
+        // 设置代理工厂地址
+        jpfb.setAddress(address);
+        // 设置借口类型
+        jpfb.setServiceClass(GlobalEligibilityInfo.class);
+        // 创建一个代理借口实现
+        GlobalEligibilityInfo userService = (GlobalEligibilityInfo) jpfb.create();
+        // 参数
+        ObjectFactory objFac = new ObjectFactory();
+        DeployServiceResponseType deployServiceResponse = new DeployServiceResponseType();
+        HceCardInfoType hceCard = new HceCardInfoType();
+        hceCard.setIDValue("aaaa");
+
+        JAXBElement<HceCardInfoType> fasd = objFac.createHceCardInfo(hceCard);
+        ExtensionsType ent = new ExtensionsType();
+        ent.getAny().add(fasd);
+        deployServiceResponse.getExtensions().add(ent);
+
+        // 调用并返回结果
+        userService.deployService(deployServiceResponse);
+        // System.out.println(JSON.toJSONString(res));
     }
 }
