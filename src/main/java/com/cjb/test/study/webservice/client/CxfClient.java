@@ -8,7 +8,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.xml.bind.JAXBElement;
-import javax.xml.namespace.QName;
 import javax.xml.ws.Holder;
 
 import org.apache.cxf.endpoint.Client;
@@ -19,6 +18,7 @@ import com.alibaba.fastjson.JSON;
 import com.cjb.test.study.bean.hce.ApplyInfoType;
 import com.cjb.test.study.bean.hce.CheckGlobalEligibilityRequestType;
 import com.cjb.test.study.bean.hce.ExtensionsType;
+import com.cjb.test.study.bean.hce.ObjectFactory;
 import com.cjb.test.study.bean.hce.SEIdGenericType;
 import com.cjb.test.study.bean.hce.ServiceIdentifierType;
 import com.cjb.test.study.bean.token.MpanApplyRequest;
@@ -170,8 +170,10 @@ public class CxfClient {
         ExtensionsType ent = new ExtensionsType();
         // 如果您的类没有 @XmlRootElement 注释，那么您可以将其包装在<$ c $的实例中C>的JAXBElement
         // 创建QName，这个是关键，有了这个就不要使用@XmlRootElement注解了
-        QName qname = new QName("http://www.gi-de.com/gd-extionsion-1.0.0", "applyInfo");
-        JAXBElement<ApplyInfoType> jaxbPerson = new JAXBElement<ApplyInfoType>(qname, ApplyInfoType.class, apply);
+        // QName qname = new QName("http://www.gi-de.com/gd-extionsion-1.0.0", "applyInfo");
+        // JAXBElement<ApplyInfoType> jaxbPerson = new JAXBElement<ApplyInfoType>(qname, ApplyInfoType.class, apply);
+        ObjectFactory objFac = new ObjectFactory();
+        JAXBElement<ApplyInfoType> jaxbPerson = objFac.createApplyInfo(apply);
 
         ent.getAny().add(jaxbPerson);
         checkGlobalEligibilityRequest.getExtensions().add(ent);
