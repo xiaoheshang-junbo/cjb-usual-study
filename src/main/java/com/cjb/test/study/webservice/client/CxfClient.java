@@ -13,6 +13,7 @@ import javax.xml.ws.Holder;
 import org.apache.cxf.endpoint.Client;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.apache.cxf.jaxws.endpoint.dynamic.JaxWsDynamicClientFactory;
+import org.apache.cxf.ws.addressing.WSAddressingFeature;
 
 import com.alibaba.fastjson.JSON;
 import com.cjb.test.study.bean.hce.ApplyInfoType;
@@ -201,6 +202,8 @@ public class CxfClient {
         jpfb.setAddress(address);
         // 设置借口类型
         jpfb.setServiceClass(GlobalEligibilityInfo.class);
+        // cxf默认是关闭WS-Addressing的，需要手动打开
+        jpfb.getFeatures().add(new WSAddressingFeature());
         // 创建一个代理借口实现
         GlobalEligibilityInfo userService = (GlobalEligibilityInfo) jpfb.create();
         // 参数
