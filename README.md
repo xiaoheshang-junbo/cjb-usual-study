@@ -9,11 +9,13 @@ webservice
 ##### 2、JDK自带工具根据wsdl文件生成java代码
 jdk版本1.8
 Token实例：
-wsimport -encoding utf-8 -keep -target 2.1 -s E:\eclipse-workspace\cjb-usual-study\src\main\java -p com.cjb.test.study.bean.token -verbose -Xnocompile AppManageToStandardProvider.wsdl <br>
+wsimport -encoding utf-8 -keep -target 2.1 -s E:\eclipse-workspace\cjb-usual-study\src\main\java -p com.cjb.test.study.bean.token -verbose -Xnocompile AppManageToStandardProvider.wsdl <br><br>
 HCE实例：使用java绑定，
-wsimport -encoding utf-8 -keep -target 2.1  -extension -d E:\eclipse-workspace\cjb-usual-study\src\main\java -p com.cjb.test.study.bean.hce -verbose -Xnocompile GlobalEligibilityInfo.wsdl <br>
-wsimport -encoding utf-8 -keep -target 2.1  -extension -d E:\eclipse-workspace\cjb-usual-study\src\main\java -p com.cjb.test.study.bean.hce -verbose -Xnocompile GlobalServiceManagementCallBack.wsdl <br>
-xjc -encoding utf-8 -target 2.1 -extension -d E:\eclipse-workspace\cjb-usual-study\src\main\java -p com.cjb.test.study.bean.hce -no-header gd-extension-1.0.0.xsd <br>
+wsimport -encoding utf-8 -keep -target 2.1  -extension -d E:\eclipse-workspace\cjb-usual-study\src\main\java -p com.cjb.test.study.bean.hce -verbose -Xnocompile GlobalEligibilityInfo.wsdl <br><br>
+wsimport -encoding utf-8 -keep -target 2.1  -extension -d E:\eclipse-workspace\cjb-usual-study\src\main\java -p com.cjb.test.study.bean.hce -verbose -Xnocompile GlobalServiceManagementCallBack.wsdl <br><br>
+xjc -encoding utf-8 -target 2.1 -extension -d E:\eclipse-workspace\cjb-usual-study\src\main\java -p com.cjb.test.study.bean.hce -no-header gd-extension-1.0.0.xsd <br><br>
+------------------------------------------------<br><br><br>
+
 
 | Option | Description |
 | :---: | :---: |
