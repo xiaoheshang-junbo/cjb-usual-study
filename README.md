@@ -57,7 +57,7 @@ keytool -genkey -alias tomcat -dname "CN=cjb,OU=cjb,O=cjb,L=cjb,ST=cjb,C=CN" -st
 生成后，在家目录找到证书文件，复制到SpringBoot应用的src/main/resources下
 控制台输入以下命令查看密钥库中的信息
 keytool -list -v -keystore MyKeyStore.p12 -storepass chengblog
-#### 2、在SpringBoot应用的application.properties增
+##### 2、在SpringBoot应用的application.properties增
 -https端口号.
 server.port=443
 -证书的路径.
@@ -68,4 +68,5 @@ server.ssl.key-store-password=123456
 server.ssl.keyStoreType=JKS
 -证书别名
 server.ssl.keyAlias=tomcat
-
+###### 3、resttemplate返回值泛型丢失问题
+https://blog.csdn.net/qq_40162735/article/details/100063040
